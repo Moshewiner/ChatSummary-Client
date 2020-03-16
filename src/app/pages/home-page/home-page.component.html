@@ -1,8 +1,8 @@
 <p>home-page works!</p>
 
-<div *ngFor="let message of messages">
-    <div style="color: red">{{message.author}}</div>
-    <div *ngFor="let keyword of message.keywords">
+<div *ngFor="let wordsCount of wordCounts">
+    <div style="color: red">{{wordsCount.author}}</div>
+    <div *ngFor="let keyword of wordsCount.keywords">
         <div style="font-size: small;">{{keyword.keyword}}:{{keyword.count}}</div>
     </div>
     

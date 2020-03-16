@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AllMessagesService } from 'src/app/services/whatsapp/all-messages.service';
+import { WordsCount } from 'src/app/services/whatsapp/types';
 
 @Component({
   selector: 'app-home-page',
@@ -7,14 +8,14 @@ import { AllMessagesService } from 'src/app/services/whatsapp/all-messages.servi
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent implements OnInit {
-  public messages: any[] = [];
+  public wordCounts: WordsCount[] = [];
 
   constructor(private allMessagesService: AllMessagesService) { }
 
   ngOnInit(): void {
     this.allMessagesService.getWordCount()
-    .subscribe(messages => {
-      this.messages = messages;
+    .subscribe(wordCounts => {
+      this.wordCounts = wordCounts;
     });
   }
 

@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+import { WordsCount, GraphqlWordCountResponse } from './types';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +12,8 @@ export class AllMessagesService {
 
   constructor(private http: HttpClient) {}
 
-  public getWordCount(): Observable<any[]> {
-    return this.http.post<any[]>(environment.serverUrl, {
+  public getWordCount(): Observable<WordsCount[]> {
+    return this.http.post<GraphqlWordCountResponse>(environment.serverUrl, {
       query: `{
         wordCount {
           author
@@ -23,6 +24,6 @@ export class AllMessagesService {
         }
       }`
     })
-      .pipe(map((gqlresponse: any) => gqlresponse.data.wordCount));
+      .pipe(map((gqlresponse: GraphqlWordCountResponse) => gqlresponse.data.wordCount));
   }
 }
