@@ -1,9 +1,3 @@
-<p>home-page works!</p>
+<h1>Word Count of each participant!</h1>
 
-<div *ngFor="let wordsCount of wordCounts">
-    <div style="color: red">{{wordsCount.author}}</div>
-    <div *ngFor="let keyword of wordsCount.keywords">
-        <div style="font-size: small;">{{keyword.keyword}}:{{keyword.count}}</div>
-    </div>
-    
-</div>
+<app-words-count *ngIf="wordCounts.length" [wordCounts]="wordCounts"></app-words-count>
