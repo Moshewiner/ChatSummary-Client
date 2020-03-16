@@ -1,1 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+    font-family: 'Assistant', sans-serif;
+}
+
+html {
+    height: 100%;
+        
+    &::after {
+        content: "";
+        background-image: url("./assets/homepage.background.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    
+        opacity: 0.8;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        z-index: -1;
+    }
+}
