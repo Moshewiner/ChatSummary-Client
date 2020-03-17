@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
 import { WordsCount } from 'src/app/services/whatsapp/types';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import * as pluginDataLabels from 'chartjs-plugin-datalabels';
@@ -7,7 +7,7 @@ import { Label } from 'ng2-charts';
 @Component({
   selector: 'app-words-count',
   templateUrl: './words-count.component.html',
-  styleUrls: ['./words-count.component.scss']
+  styleUrls: ['./words-count.component.scss'],
 })
 export class WordsCountComponent implements OnInit {
   @Input() wordCounts: WordsCount[];
@@ -38,10 +38,9 @@ export class WordsCountComponent implements OnInit {
           data: wordCount.keywords.map(keyword => keyword.count)
         }],
         colors: [{
-          backgroundColor: "#" + ((1 << 24) * Math.random() | 0).toString(16)
+          backgroundColor: "#" + ((1 << 24) * Math.random() | 0).toString(16),
         }]
       };
     });
-    console.log(this.charts);
   }
 }

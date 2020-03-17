@@ -1,7 +1,5 @@
-<div style="display: block; background-color: white; width: 500px; text-align: center;">
-    <div *ngFor="let chart of charts">
-        <canvas baseChart [datasets]="chart.data" [labels]="chart.labels" [options]="barChartOptions"
-            [colors]="chart.colors" [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType">
-        </canvas>
-    </div>
+<div *ngFor="let chart of charts">
+    <canvas baseChart [datasets]="chart.data" [labels]="chart.labels" [options]="barChartOptions"
+        [colors]="chart.colors" [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType">
+    </canvas>
 </div>
