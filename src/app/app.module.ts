@@ -12,6 +12,7 @@ import { WhatsappComponent } from './pages/whatsapp/whatsapp.component';
 import { WordsCountComponent } from './components/words-count/words-count.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { MainPageComponent } from './pages/main-page/main-page.component';
+import { AveragePerDayComponent } from './components/average-per-day/average-per-day.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MainPageComponent } from './pages/main-page/main-page.component';
     WhatsappComponent,
     WordsCountComponent,
     NavBarComponent,
-    MainPageComponent
+    MainPageComponent,
+    AveragePerDayComponent
   ],
   imports: [
     BrowserModule,

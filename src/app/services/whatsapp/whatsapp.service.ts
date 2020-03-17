@@ -3,14 +3,14 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { WordsCount, GraphqlWordCountResponse } from './types';
+import { WordsCount, GraphqlWordCountResponse, GraphqlAverageMessagesCountPerDayResponse } from './types';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AllMessagesService {
+export class WhatsappService {
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   public getWordCount(): Observable<WordsCount[]> {
     return this.http.post<GraphqlWordCountResponse>(environment.serverUrl, {
@@ -25,5 +25,17 @@ export class AllMessagesService {
       }`
     })
       .pipe(map((gqlresponse: GraphqlWordCountResponse) => gqlresponse.data.wordCount));
+  }
+
+  public getAverageMessagesPerDay() {
+    return this.http.post<GraphqlAverageMessagesCountPerDayResponse>(environment.serverUrl, {
+      query: `{
+        WeekdaysAverage {
+          day
+          average
+        }
+      }`
+    })
+      .pipe(map((gqlresponse: GraphqlAverageMessagesCountPerDayResponse) => gqlresponse.data.WeekdaysAverage));
   }
 }

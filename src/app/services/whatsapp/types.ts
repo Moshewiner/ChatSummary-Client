@@ -6,8 +6,14 @@ export interface WordsCount {
     }[]
 }
 
-export interface GraphqlWordCountResponse {
-    data: {
-        wordCount: WordsCount[]
-    }
+export interface GraphqlResponse<T> {
+    data: T
 }
+
+export interface WeekdaysAverage {
+    day: string;
+    average: number;
+};
+
+export interface GraphqlWordCountResponse extends GraphqlResponse<{ wordCount: WordsCount[] }> { }
+export interface GraphqlAverageMessagesCountPerDayResponse extends GraphqlResponse<{ WeekdaysAverage: WeekdaysAverage[] }> { }

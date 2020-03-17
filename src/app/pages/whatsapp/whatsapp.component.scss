@@ -8,11 +8,9 @@
         text-shadow: 1px 1px black;
     }
 
-    .container {
+    .statistics-container {
         display: flex;
-        flex-direction: row;
-        
-        app-words-count {
-        }
+        flex-direction: column;
+    
     }
 }
